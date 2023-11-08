@@ -7,7 +7,7 @@ on:
     
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: echo-bot
+  IMAGE_NAME: uniwise
 
 jobs:
   build-and-publish-image:
