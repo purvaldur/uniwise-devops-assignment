@@ -1,5 +1,5 @@
-name: Run go tests on master branch
-run-name: Run go tests on master branch
+name: Build and push image to ghcr
+run-name: Build and push image to ghcr
 
 on:
   release:
