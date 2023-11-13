@@ -20,6 +20,8 @@ spec:
         env:
         - name: REDIS_URL
           value: "redis://localhost:6379"
+        - name: PORT
+          value: "4444"
         volumeMounts:
         - name: users
           mountPath: "/app/secrets"
