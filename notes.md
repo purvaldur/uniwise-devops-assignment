@@ -1,6 +1,8 @@
 ## Preface:
 Some of these notes are written before I actually did what I wrote about, and some are written after-the-fact. As a consequence of this, it's a bit of a mish-mash of past, present and future tense.
 
+Also, by the very nature of having my own kubernetes cluster at home already, there are some things I may have skipped over. For example already having done a lot of the legwork in setting up a cluster with StorageClass, Ingress, Flux, etc etc...
+
 ## 1) Dockerization
 
 The phrase in the project pitch "Bonus points if only include what is needed to run the application." had me create a very simple dockerfile (it can perhaps be even simpler).
@@ -69,10 +71,11 @@ The application was then deployed to the cluster using a deployment manifest (de
 
 ## 5) Expose out of cluster
 
-I did #5 before #4 because that was an easy, next step. Using a combination of a service (defined in svc.yaml) and nginx ingress together with letsencrypt certmanager, I was able to quickly expose the application with HTTPS included.
+I did #5 before #4 because that was an easy, next step. Using a combination of a service (defined in svc.yaml) and Nginx ingress + Letsencrypt cert-manager, I was able to quickly expose the application with HTTPS included.
 
 The application is currently live on https://uniwise.vald.io/ - I am willing to take the URL down immediately upon request if the presence of the word "uniwise" in the URL is inappropriate.
 
 ## 4) Resilience
 
-It seems the application is already set up to use Redis as the backend, so it should be trivial to set up redis on the side and let the application connect to it through the provided REDIS_URL environment variable. That way, if the pod goes down or gets rolled, data is not lost.
+It seems the application is already set up to use Redis as the backend, so it should be trivial to set up redis on the side and let the application connect to it through the provided REDIS_URL environment variable. That way, if the pod goes down or gets rolled, data is not lost. I don't have a redis instance set up already, so this will be a fun exercise to explore.
+
