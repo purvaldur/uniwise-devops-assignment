@@ -20,3 +20,10 @@ spec:
         env:
         - name: REDIS_URL
           value: "redis://localhost:6379"
+        volumeMounts:
+        - name: users
+          mountPath: "/app/secrets/users.json"
+      volumes:
+      - name: users
+        secret:
+          secretName: users
