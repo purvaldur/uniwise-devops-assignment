@@ -25,6 +25,8 @@ The other pipeline is more "manual". It waits for a new release to be created, t
 
 I had some trouble PRIOR to beginning this, as I've been wanting to upgrade my kubernetes cluster for awhile now and saw this as an excuse to stop procastinating and actually do it, which ended up adding a lot of time to the task. It was a fun side-adventure however. As part of the upgrade, I installed Flux CD to the cluster, which I will then use to deploy the GHCR package onto the cluster.
 
+The cluster is a small 3-node cluster I run at home as my own little sandbox environment.
+
 I store the GitRepository manifest and kustomization in another private repo of mine, so I will just embed them in this notes.md:
 
 ```yaml
@@ -57,3 +59,4 @@ spec:
   timeout: 3m0s
   wait: true
 ```
+
