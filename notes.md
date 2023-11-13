@@ -24,3 +24,36 @@ The other pipeline is more "manual". It waits for a new release to be created, t
 ## 3) Kubernetes
 
 I had some trouble PRIOR to beginning this, as I've been wanting to upgrade my kubernetes cluster for awhile now and saw this as an excuse to stop procastinating and actually do it, which ended up adding a lot of time to the task. It was a fun side-adventure however. As part of the upgrade, I installed Flux CD to the cluster, which I will then use to deploy the GHCR package onto the cluster.
+
+I store the GitRepository manifest and kustomization in another private repo of mine, so I will just embed them in this notes.md:
+
+```yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: uniwise
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: dev
+  url: https://github.com/purvaldur/uniwise-devops-assignment
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: uniwise
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  path: ./flux
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: uniwise
+  targetNamespace: uniwise
+  timeout: 3m0s
+  wait: true
+```
