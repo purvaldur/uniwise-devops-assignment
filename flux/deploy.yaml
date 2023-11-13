@@ -17,3 +17,6 @@ spec:
         image: ghcr.io/purvaldur/uniwise:latest
         ports:
         - containerPort: 4444
+        env:
+        - name: REDIS_URL
+          value: "redis://localhost:6379"
