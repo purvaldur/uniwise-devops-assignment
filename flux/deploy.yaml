@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uniwise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uniwise
+  template:
+    metadata:
+      labels:
+        app: uniwise
+    spec:
+      containers:
+      - name: uniwise
+        image: ghcr.io/purvaldur/uniwise:latest
+        ports:
+        - containerPort: 4444
