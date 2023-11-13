@@ -1,3 +1,6 @@
+## Preface:
+Some of these notes are written before I actually did what I wrote about, and some are written after-the-fact. As a consequence of this, it's a bit of a mish-mash of past, present and future tense.
+
 ## 1) Dockerization
 
 The phrase in the project pitch "Bonus points if only include what is needed to run the application." had me create a very simple dockerfile (it can perhaps be even simpler).
@@ -72,3 +75,4 @@ The application is currently live on https://uniwise.vald.io/ - I am willing to 
 
 ## 4) Resilience
 
+It seems the application is already set up to use Redis as the backend, so it should be trivial to set up redis on the side and let the application connect to it through the provided REDIS_URL environment variable. That way, if the pod goes down or gets rolled, data is not lost.
