@@ -60,3 +60,15 @@ spec:
   wait: true
 ```
 
+Before doing anything else, I created the ns.yaml to create the namespace.
+
+The application was then deployed to the cluster using a deployment manifest (deploy.yaml) along with a secret for the users.json that was mounted as a file within the deployment (secret.yaml).
+
+## 5) Expose out of cluster
+
+I did #5 before #4 because that was an easy, next step. Using a combination of a service (defined in svc.yaml) and nginx ingress together with letsencrypt certmanager, I was able to quickly expose the application with HTTPS included.
+
+The application is currently live on https://uniwise.vald.io/ - I am willing to take the URL down immediately upon request if the presence of the word "uniwise" in the URL is inappropriate.
+
+## 4) Resilience
+
