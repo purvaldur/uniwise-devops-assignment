@@ -77,5 +77,7 @@ The application is currently live on https://uniwise.vald.io/ - I am willing to 
 
 ## 4) Resilience
 
-It seems the application is already set up to use Redis as the backend, so it should be trivial to set up redis on the side and let the application connect to it through the provided REDIS_URL environment variable. That way, if the pod goes down or gets rolled, data is not lost. I don't have a redis instance set up already, so this will be a fun exercise to set this up using helm+flux.
+It seems the application is already set up to use Redis as the backend, so it should be trivial to set up redis on the side and let the application connect to it through the provided REDIS_URL environment variable. That way, if the pod goes down or gets rolled, data is not lost. Also, it seems a redis instance is *required* because if not provided, the application throws an error in the console log about it when the application is interacted with...
+
+I don't have a redis instance set up already, so this will be a fun exercise to set this up using helm+flux. I'll use BitNami for the helm chart, since I have experience with their helm charts and they do good work.
 
