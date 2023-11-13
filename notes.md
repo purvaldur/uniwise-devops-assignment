@@ -14,3 +14,13 @@ docker run \
 ```
 
 This creates a working and runnable image. .env and secrets/users.json needs to be loaded in manually due to .dockerignore.
+
+## 2) CICD
+
+I set up two CICD pipelines, one that runs the tests on every PR to the main branch from the dev branch. Github is smart enough to even add the result of the pipeline directly to the PR which can then be inspected before approving/denying merge.
+
+The other pipeline is more "manual". It waits for a new release to be created, then creates a GHCR package in the repo, tagging it with "latest" and the release tag.
+
+## 3) Kubernetes
+
+I had some trouble PRIOR to beginning this, as I've been wanting to upgrade my kubernetes cluster for awhile now and saw this as an excuse to stop procastinating and actually do it, which ended up adding a lot of time to the task. It was a fun side-adventure however. As part of the upgrade, I installed Flux CD to the cluster, which I will then use to deploy the GHCR package onto the cluster.
