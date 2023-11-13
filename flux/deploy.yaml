@@ -22,7 +22,7 @@ spec:
           value: "redis://localhost:6379"
         volumeMounts:
         - name: users
-          mountPath: "/app/secrets/users.json"
+          mountPath: "/app/secrets"
       volumes:
       - name: users
         secret:
