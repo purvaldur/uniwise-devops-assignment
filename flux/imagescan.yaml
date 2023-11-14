@@ -42,5 +42,5 @@ spec:
     push:
       branch: main
   update:
-    path: ./clusters/my-cluster
+    path: ./flux
     strategy: Setters
