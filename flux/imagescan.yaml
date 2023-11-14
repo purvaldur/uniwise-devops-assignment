@@ -1,0 +1,21 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: uniwise
+  namespace: flux-system
+spec:
+  image: ghcr.io/purvaldur/uniwise
+  interval: 5m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: uniwise
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: uniwise
+  policy:
+    semver:
+      range: 1.x.x

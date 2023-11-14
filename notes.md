@@ -26,6 +26,9 @@ I set up two CICD pipelines, one that runs the tests on every PR to the main bra
 
 The other pipeline is more "manual". It waits for a new release to be created, then creates a GHCR package in the repo, tagging it with "latest" and the release tag.
 
+*the section was returned to later to add the following*
+I have decided to also experiment with Flux image scanning as part of the CICD process.
+
 ## 3) Kubernetes
 
 I had some trouble PRIOR to beginning this, as I've been wanting to upgrade my kubernetes cluster for awhile now and saw this as an excuse to stop procastinating and actually do it, which ended up adding a lot of time to the task. It was a fun side-adventure however. As part of the upgrade, I installed Flux CD to the cluster, which I will then use to deploy the GHCR package onto the cluster.
