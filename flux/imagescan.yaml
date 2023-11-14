@@ -24,12 +24,13 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
   name: uniwise
-  namespace: flux-system
+  namespace: uniwise
 spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
     name: uniwise
+    namespace: flux-system
   git:
     checkout:
       ref:

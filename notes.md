@@ -28,7 +28,7 @@ The other pipeline is more "manual". It waits for a new release to be created, t
 
 *the section was returned to later to add the following*
 
-I have decided to also experiment with Flux image scanning as part of the CICD process.
+I decided to also experiment with Flux image scanning as part of the CICD process.
 
 ## 3) Kubernetes
 
