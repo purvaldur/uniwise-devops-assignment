@@ -28,7 +28,7 @@ The other pipeline is more "manual". It waits for a new release to be created, t
 
 *the section was returned to later to add the following*
 
-I decided to also experiment with Flux image scanning as part of the CICD process.
+I decided to also experiment with Flux image scanning as part of the CICD process. However, having gone on far too many side-adventures already, time had run away from me and when I got to an authentication issue with the image update automation thingamajig I saw how late I've accidentally stayed up. So sadly, I did not get to fully implement this.
 
 ## 3) Kubernetes
 
@@ -85,6 +85,6 @@ It seems the application is already set up to use Redis as the backend, so it sh
 
 I don't have a redis instance set up already, so this will be a fun exercise to set this up using helm+flux. I'll use BitNami for the helm chart, since I have experience with their helm charts and they do good work.
 
----
+![a few moments later](image.png)
 
 That was pretty neat. The bitname helm chart made setup a breeze. I had to disable authentication since the application doesn't seem to have any authentication capabilites built into it. Not quite best practice, but in the real world, this would solved in collaboration with the application developer.
