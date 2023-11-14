@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: uniwise
-        image: ghcr.io/purvaldur/uniwise:0.0.1 # {"$imagepolicy": "uniwise:uniwise"}
+        image: ghcr.io/purvaldur/uniwise:v0.0.1 # {"$imagepolicy": "uniwise:uniwise"}
         ports:
         - containerPort: 4444
         env:
