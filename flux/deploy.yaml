@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uniwise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uniwise
+  template:
+    metadata:
+      labels:
+        app: uniwise
+    spec:
+      containers:
+      - name: uniwise
+        image: ghcr.io/purvaldur/uniwise:latest # {"$imagepolicy": "uniwise:uniwise"}
+        ports:
+        - containerPort: 4444
+        env:
+        - name: REDIS_URL
+          value: "redis://redis-master:6379"
+        - name: PORT
+          value: "4444"
+        volumeMounts:
+        - name: users
+          mountPath: "/app/secrets"
+      volumes:
+      - name: users
+        secret:
+          secretName: users
+---

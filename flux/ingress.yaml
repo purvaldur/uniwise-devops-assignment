@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uniwise
+  namespace: uniwise
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: uniwise.vald.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: uniwise
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  
+  tls:
+    - hosts:
+        - uniwise.vald.io
+      secretName: echo-tls
