@@ -29,7 +29,7 @@ spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
-    name: uniwise
+    name: uniwise-devops-assignment
   git:
     checkout:
       ref:
