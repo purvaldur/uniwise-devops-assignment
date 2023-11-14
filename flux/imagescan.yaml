@@ -3,7 +3,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: uniwise
-  namespace: flux-system
+  namespace: uniwise
 spec:
   image: ghcr.io/purvaldur/uniwise
   interval: 5m
@@ -12,10 +12,35 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: uniwise
-  namespace: flux-system
+  namespace: uniwise
 spec:
   imageRepositoryRef:
     name: uniwise
   policy:
     semver:
       range: 1.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: uniwise
+  namespace: uniwise
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: uniwise
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  update:
+    path: ./clusters/my-cluster
+    strategy: Setters
