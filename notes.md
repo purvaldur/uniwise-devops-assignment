@@ -27,6 +27,7 @@ I set up two CICD pipelines, one that runs the tests on every PR to the main bra
 The other pipeline is more "manual". It waits for a new release to be created, then creates a GHCR package in the repo, tagging it with "latest" and the release tag.
 
 *the section was returned to later to add the following*
+
 I have decided to also experiment with Flux image scanning as part of the CICD process.
 
 ## 3) Kubernetes
@@ -84,3 +85,6 @@ It seems the application is already set up to use Redis as the backend, so it sh
 
 I don't have a redis instance set up already, so this will be a fun exercise to set this up using helm+flux. I'll use BitNami for the helm chart, since I have experience with their helm charts and they do good work.
 
+---
+
+That was pretty neat. The bitname helm chart made setup a breeze. I had to disable authentication since the application doesn't seem to have any authentication capabilites built into it. Not quite best practice, but in the real world, this would solved in collaboration with the application developer.
